@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Batch</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="topo"></div>
+    <header>
+        <h1>Rotina Do Batch</h1>
+    </header>
+    <main>
+        <nav>
+            <a href="index.html">Início</a>
+            <a href="procedimentos.html">Comandos basc.</a>
+            <a href="abertura.html">Abertura da loja</a>
+            <a href="batch.html">Batch</a>
+            <a href="unificacao.html">Unifacação</a>
+            <a href="re_servidor.html">Re.servidor</a>
+            <a href="sobre.html">Sobre</a>
+            <a href="#contact">Contato  &#9743;</a>
+        </nav>
+
+        <article>
+            <h2>
+                Batch o que é?
+            </h2>
+            <p>Batch é um termo que pode referir-se a um serviço de processamento em lote, a um arquivo de script ou a um modo de processamento de dados:</p>
+            
+            <h3>Batch como serviço</h3>
+            <p>É um serviço gerenciado que permite programar, enfileirar e executar procesamento em lote</p>
+
+            <h3>Batch como Arquivo</h3>
+            <p>É um arquivo de script que contém uma série de comandos que podem ser executado em sequência pelo interpretador de comandos. Os arquivos do Batch São identificados pelas extensões <strong>.bat</strong> ou <strong>.cmd.</strong> Os processos batch são executados em períodos onde os recursos computacionais são menos ocupados.</p>
+        </article>
+
+        <picture>
+            <img src="imagens/rotinabatch001.png" alt="imagem do rotina do batch">
+        </picture>
+
+        <h2>1° Gerar o Arquivo do Balanço</h2>
+        <p>Antes de começar, caso o Estoquista não conseguir iniciar o balanço ou o mesmo solicitar, primeiro checar o arquivo no servidor <strong><i>DB</i></strong> se o arquvo já foi gerado. <br> 
+        Abra o putty: servidor <strong>SAVE</strong>; digita <strong><i>antesbatch020</i></strong> uma lista de arquivos das filias regionais e da matriz vai aperecer, os arquivos que constar em vermelho significa não gerou aínda se for verde o arquivo já foi gerado, caso se arquivo <strong><i>set111ddmmaa</i></strong> está em vermelho, vá ao diretório <strong><i>/fs1/integra</i></strong> e crie o arquivo em branco.<br>
+        No servidopr <strong><i>SRVSAVE</i></strong>: Digite <strong><i>i</i></strong> para ir na <strong><i>/fs1/integra</i></strong> <br>
+        Digite: <strong><i>touch set111ddmmaa.txt</i></strong> (sempre com a daa do dia)
+        </p>
+
+        <h2>2° Checagens Pré Batch</h2>
+
+        <picture>
+            <img src="imagens/checagens prebatch002.png" alt="imagem de checagem pre bathc">
+        </picture>
+
+        <h3>Checagem o Filesystem</h3>
+        <p>Sempre virificar os porcentagens do files <strong>/FS1, /FS2 E BACKUP</strong>. <br>
+            No putty servidor <strong>DB</strong>; digite: <strong><i>df</i></strong>
+        </p>
+
+        <h3>Rodar o SJBPEDI</h3>
+        <P>Vericar primeiro se o <strong>SJBPEDI</strong> foi executado através da tela <strong>SADOU40</strong>. <br>
+            Importante: o <strong>SJBPEDI</strong> deve ser rodado; de Segunda a Sexta-feira de 22:00hrs até as 23:00hrs e Sábado, Domingo e Feriados a partir de 12:00hrs <br>
+            Para rodar: Servidor <strong>DB</strong>
+            <strong>usuario@dbFFF:/fs1/save:</strong>
+            <strong><i>dfrun exe sjbou02</i></strong>
+            informe o numero da filial
+            verifique se a data está com o dia atual
+            digite SJBPEDI e tecle S enter até terminar.
+        </P>
+
+        <h3>Fechamento dos PDV's</h3>
+        <p>
+            Para começar imprimir a folha de Fechamento dos PDV's, depois as vendas da loja terminar tirar a RDZ de cada caixa e fechar os caixas. Anotar o valor de venda liquida dos respectivos caixas na folha de Fechamento.
+        </p>
+        <p>
+            verifique se a Moedeira tirou a saida, verifique se o Apoio finalizou os fechamentos, batimentos dos caixas, entre no tplinux-webapp e imprimir os seguintes relatorios: <br>
+            <ul>
+                <li>Monitor: Relatotio De Vendas: mandar para imprimir; <strong>FORMAS DE PAGAMENTOS</strong> e <strong>CUPONS CANCELADOS</strong></li>
+                <li>Atacadão: Relatorios: mandar para imprimir; <strong>INTERVENÇÃO SOBRE CANCELAMENTOS</strong></li>
+            </ul>
+        </p>
+
+        <h3>Bloquear o Sistema</h3>
+        <p>
+            Antes de colocar os Job's do Batch para rodar é importante deixar o sistema totalmente livre, primeiro tem bloquear o sistema e derrubar Todos os usuários que esteve presos. <br>  Para bloquear abra o Putty e logue no servidor <strong>DB</strong> dar o comando: <strong><i>dfrun exe sadbu01</i></strong> <br> depois verificar se tem usuario que está preso com o comando: <strong><i>who -u</i></strong> esse comando lista os usuários que estão logados no sistema caso se teve. Caso se teve usuários logados no sistema derruba-los com o comando: <strong><i>sudo kill -9 + o número do usuários</i></strong>. Depois dá o comando: <strong><i>ps -ef | grep dfrun</i></strong> esse comando lista as telas que ficou abertas no Putty, caso se esteve telas abertas no Putty dá o comando: <strong><i>sudo kill -9 + o número do pocesso para derrubar o processo</i></strong>. <br> Depois alterne para o servidor SRVSAVE e repetir os procedimentos de cima. 
+        </p>
+
+        <h3>Inicia o END-OF-DAY</h3>
+        <p>
+            Abra o putty, servidor <strong>TPLINUX – SRVTPL</strong>, no menu , selecione 
+            a opção: <STRONG>SOD / EOD / STATUS, OPÇÃO FINALIZAR DIA TPLINUX</STRONG>. 
+            tecle Enter 4 vezes.
+        </p>
+        <p>
+            Em seguida abre o Putty acessar a tela: <strong><I>dfrun exe sjbou02</I></strong> inicie o job <strong>SJBDD00</strong>
+        </p>
+
+        <h2>3° BACKUP</h2>
+        <h3>Salva DIARIO_ANTES</h3>
+
+        <picture>
+            <img src="imagens/imgbackup.png" alt="imagem backup">
+        </picture>
+
+        <p>
+            Para fazer a salva, acesse o programa <strong>NETBACKUP</strong>, acessar <strong>DEVICE MONITOR</strong> para verificar se o drive reconhecer a fita e seu <strong>ID</strong>: depois acessar <strong>POLICIES</strong> selecione a opção <strong>DIARIO_ANTES</strong>, aperte com botão direito no <strong>MANUAL BACKUP</strong>, e clique OK para iniciar a salva. Depois pode acompahnar a salva acesar <strong>ACTIVITY MONITOR</strong>.
+        </p>
+
+        <p>
+            Caso o Robot Storage estaja com problema, será necessásrio solicitar a salva em disco para a Matriz, para isso é preciso abra um chamado com programa CSC: TIPO INCIDENTE; SETOR BACKUP; ASSUNTO SALVA EM DISCO e invie o número do chamado para o correspondente da Matriz, esse backup pode ser acompahnado pelo comando: w ou top <br> Assim que sumir o processo <strong>RMAN-TARGET</strong> a salva estará concluida. <br> OBS: Após o termino, a salva em disco não apágar os conteúdos no diretório, será necessásrio apagar esses conteúdos manualmente. Portanto antes de iniciar o <strong>SJBDD01</strong> entrar no servidor <strong>DB</strong> digote k para ir no diretório bk dá o comando: <strong><i>rm *</i></strong>
+        </p>
+
+        <h2>4ª Checagem dos valores</h2>
+
+        <h3>Checagem de Valores dos PDV's</h3>
+        <p>
+            Ainda no serividor Tplinux aguarde o AV do dia for gerado, depois que o AV foi gerado abra o Putty servidor DB comando: dfrun exe sasoi60 <br> Verifique cada venda por PDV. (caso dê algum divergência ligue para a Matriz informar o caso e use a tela SDPOI50)
+        </p>
+        <picture>
+            <img src="imagens/imgsasoi60.png" alt="imagem do sasoi60">
+        </picture>
+        <h3>Valores do Caixas Empresa</h3>
+        <p>
+            Para checar os valores dos caixas empresa abra o Putty servidor DB comando: dfrun exe svdoi70 <br> Na tela <strong>SVDOI70</strong> anote os valores <strong>VND Comercialização</strong> e <strong>DEV. VND COMERC.</strong> calcule: <strong>VND Comercialização - DEV. VND COMERC.</strong> e some o resultado com a <strong>SASOI60</strong>. <br> Depois acessar o mapeamento retaguarda somente pelo programa WINSCP copia o arquivo mapa_resume para pasta mapa, depois localizar o arquivo no explorer mapeamento portal pasta mapa e mandar para imprimir.
+        </p>
+
+        <h2>5° Inicio do Batchfff</h2>
+        <h3>Checagem dos arquivos Antesbtchfff</h3>
+        <p>
+            Antes de iniciar o job <strong>SJBDD01</strong> é extremamente importante checar os arquivos <strong>ANTESBATCHfff</strong> se chegar, todos esses arquivos deve está <strong>OK</strong> sinal que os arquivos já estão na integra, caso contrário não inicia o <strong>SJBDD01</strong>.
+        </p>
+        <picture>
+            <img src="imagens/arq.antesbtch.png" alt="imagem arquivos antesbatch">
+        </picture>
+
+        <h3>Iniciar SJBDD01</h3>
+        <p>
+            Após o terminou do Backup Diario_Antes, hora de iniciar o primeiro job do Batch SJBDD01. <br> Abra o Putty servidor DB comando: <strong><i>dfrun exe sjbou02</i></strong> <br>
+            Importante: confira a data do batch e digite o numero  da filial e <strong>SJBDD01</strong>.
+        </p>
+        <picture>
+            <img src="imagens/iniciobatch.png" alt="imagem dd01">
+        </picture>
+        <p>
+            <strong>ATENÇÂO:</strong> Atentar-se a 4ª sequencia do DD01, pois a mesma pode dar erro de ruptura <strong>.BAD</strong> e serra necessásrio entrar no <strong><i>/fs1/dat</i></strong> e ter o procedimento CLEN UP para fazer o tratamento.
+        </p>
+        <p>
+            No <strong>SJBDD01</strong> exestem 4 relatorios que precisa ser checados: <br>
+            
+            <ol>
+                <li>SASBU24: Na sequencia 290</li>
+                <li>SASBI08: Na sequencia 300</li>
+                <li>SRTBI01: Na sequencia 510</li>
+                <li>SAEBI05: Na sequencia 610</li>
+            </ol>
+        </p>
+        <p>
+            Para visualizar esses relatorios: Abra outra instância do Putty servidor <strong>DB</strong> digite K para ir na integra dentro da integra digite: <strong><i>vi  nome do arquivo* </i></strong>(ex: sas24*) <br>
+            precisa fazer o mesmo para cada um desses arquivos e anotar o valor final na folha da rotina batch. Para <strong><i>sas08*</i></strong> após aberturaa do arquivo digite: <strong><i>/DIV</i></strong> dpois tecle shift+g para exibir o valor, os dois valores tem que dar o mesmo, assim por o arquivo <strong><i>srt01*</i></strong>
+        </p>
+        <h3>SJBDD02</h3>
+        <p>
+            Depois dp processo DD01 ainda na SJBOU02 inicie o SJBDD02 nesse job gerar os principais relatorios do batch. Durante o processo DD02 é importante checar se a fila de impressora de preçcos esta ativa, pois na sequencia de 590 e 600 irá gerar a emissão das etiquetas de preços do batch.
+        </p>
+        <h3>SJBDD03</h3>
+        <p>
+            Após o termino DD02 ainda na tela SJBOU02 inicie o SJBDD03, neste job é feita a alteração da data do batch para o dia seguuinte no programa SADBU09.
+        </p>
+        <h3>SJBDD04</h3>
+        <p>
+            Após o termino do DD03 ainda na tela SJBOU02 inicie o SJBDD04, nesse job gerar os arquivos pré-abertura e final gerar o programa Desbloqueio do sistema. 
+        </p>
+        <h3>Salva Após</h3>
+        <p>
+            Após o termino do <strong>DD04</strong> abrir o programa <strong>NETBACKUP</strong> inicie a <strong>salva DIARIO_APÒS</strong>. <br>
+            Para fazer a salva, acesse o programa <strong>NETBACKUP</strong>, acessar <strong>DEVICE MONITOR</strong> para verificar se o drive reconhecer a fita e seu ID: depois acessar <strong>POLICIES</strong> selecione a opção <strong>DIARIO_APÒS</strong>, aperte com botão direito no <strong>MANUAL BACKUP</strong>, e clique OK para iniciar a salva. Depois pode acompahnar a salva acesar <strong>ACTIVITY MONITOR</strong>.
+        </p>
+        <p>
+            Caso o Robot Storage estaja com problema, será necessásrio solicitar a salva em disco para a Matriz, para isso é preciso abra um chamado com programa CSC: TIPO INCIDENTE; SETOR BACKUP; ASSUNTO SALVA EM DISCO e invie o número do chamado para o correspondente da Matriz, esse backup pode ser acompahnado pelo comando: w ou top, assim que sumir o processo <strong>RMAN-TARGET</strong> a salva estará concluida.
+        </p>
+        <p>
+            Em seguida Habilita os programas <strong>SASOU46</strong> e <strong>SASOU47</strong> na tela <strong>SVDOU23</strong>.
+        </p>
+        <h3>START-OF-DAY (SOD)</h3>
+        <p>
+            ATENÇÂO: Não reinicie o servidor Tplinux, nem execute o START-OF-DAY entre 02:00hrs 03:00hrs e entre 04:30hrs e 05:30hrs 
+        </p>
+        <p>
+            Para iniciar o dia abra o putty, servidor <strong>TPLINUX – SRVTPL</strong>, no menu , selecione 
+            a opção: <STRONG>SOD / EOD / STATUS</STRONG> opção <strong>INICIA_O_DIA TPLINUX</strong>. 
+            tecle Enter.
+        </p>
+
+    </main>
+    <footer>
+        <a href="index.html" style="color: white;">Voltar por inicío</a>
+        <a href="#topo" style="color: white;" class="ftopo">volta ao topo</a>
+    
+        <ul class="lista">
+            <li><a href="index.html">Início</a></li>
+            <li><a href="procedimentos.html">Comandos basc.</a></li>
+            <li><a href="abertura.html">abertura da loja</a></li>
+            <li><a href="batch.html">Batch</a></li>
+            <li><a href="unificacao.html">Unifacação</a></li>
+            <li><a href="re_servidor.html">Re.servidor</a></li>
+            <li><a href="sobre.html">Sobre</a></li>
+            <li><a href="#contact">Contato</a></li>
+        </ul>
+        <p class="copyright">&copy; 2024 Site criado por Jean Midler Rya. Todos os direitos reservados para grupo CPD Atacadão Santo Amaro S.A.</p>
+    </footer>
+    
+</body>
+</html>

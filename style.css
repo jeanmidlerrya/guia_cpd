@@ -1,0 +1,232 @@
+@charset "UTF-8";
+
+@font-face {
+    font-family: 'good times';
+    src: url('good\ times\ rg.otf');
+}
+@font-face {
+    font-family: 'Android';
+    src: url('./idroid.otf');
+
+}
+@font-face {
+    font-family: 'Bebas';
+    src: url('./BebasNeue-Regular.otf');
+    font-weight: normal;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Chivo:ital,wght@0,100..900;1,100..900&display=swap');
+
+:root {
+    --cor01: #FF6633;
+    --cor02: #009933;
+    --cor03: #FFFFFF;
+
+    --fonte-padrão: Arial, Verdana, Helvetica, sans-serif;
+    --fonte-destaque: 'good times';
+    --fonte-destaque2: "Bebas Neue", sans-serif;
+    --font-destaque3: 'Android';
+    --font-destaque4: 'Bebas';
+}
+body {
+    /*background-image: linear-gradient(to top, #009933, white);*/
+    background-color: #009933;
+    font-family: var(--fonte-padrão);
+    margin: 0px;
+
+}
+#home {
+    background-image: url(imagens/img\ fondo01.jpg);
+    background-repeat: no-repeat;
+    background-position: bottom top;
+    background-size: contain;
+}
+#topo {
+    position: relative;
+    top: -50px;
+}
+
+main {
+    background-color: white;
+    min-width: 320px;
+    max-width: 1000px;
+    margin: auto;
+    margin-top: 0px;
+    margin-bottom: 0px;
+    padding: 20px;
+    box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.363);
+    
+   
+    
+}
+main p {
+    text-indent: 2em;
+    text-align: justify;
+    line-height: 2em;
+    margin:10px 0px ;
+    font-size: 1em;
+}
+
+main strong {
+    color: #013b15;
+    font-weight: bold;
+    background-color: #fab198b2;
+    padding: 2px 5px;
+}
+
+.index {
+    background-image: url('imagens/image\ fundo\ 004.png');
+    border-radius: 0px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.principal {
+
+    font-family: "Chivo", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: lighter;
+    font-style: normal;
+    color: var(--cor01);
+    text-align: center;
+    font-size: 2.5em;
+    text-decoration: none;
+}
+
+.opçao {
+    color: #FFFFFF;
+    text-align: center;
+
+}
+
+img {
+    width: 100%;
+}
+
+h1 {
+    color:#FF6633 ;
+    font-family: var(--fonte-destaque);
+    text-align: center;
+    
+   
+}
+
+main h2 {
+    background-image: linear-gradient(to right, #fabca97a, white);
+    font-family: var(--font-destaque4);
+    text-align: center;
+    font-weight: 100;
+    font-size: 30px;
+    color: #FF6633;
+}
+h3 {
+    text-decoration: underline;
+    color: #013b15;
+}
+
+header{
+    /*background-image: linear-gradient(25deg, black, blue, white);*/
+    background-color: #FFFFFF;
+    color: #FFFFFF;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-bottom: 0px;
+    padding: 3%;
+    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.37);
+    background-attachment: fixed;
+}
+.header-content {
+    display: flex;
+    align-items: center;
+}
+.header-logo {
+    width: 200px;
+    margin: auto;
+}
+.destaque {
+    color: #FFFFFF;
+    text-align: center;
+}
+nav {
+    
+    text-align: center;
+    padding: 15px;
+    margin: 15px;
+   
+}
+
+.navinicio a {
+    color: #FFFFFF;
+    text-align: center;
+    display: inline-block;
+    margin: auto;
+    margin: 5px;
+    width: 150px;
+    height: 150px;
+    border: 1px, solid, rgba(211, 211, 211, 0.288);
+}
+
+a {
+    
+    padding: 10px;
+    margin: 0px;
+    color: var(--cor02);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #FF6633;
+    text-decoration: underline;
+    background-color: #ffffff25;
+}
+footer {
+    background-image: linear-gradient(to right, black, #009933);
+    background-color: black;
+    padding-top: 10px;
+    margin: 0px;
+    margin-bottom: -1%;
+
+}
+footer > p {
+    
+    color: #FFFFFF;
+    text-align: center;
+    padding: 20px;
+}
+
+footer > .lista {
+    list-style-position: inside;
+    padding: 20px;
+}
+ .lista > li {
+    padding: 5px;
+    margin: 10px;
+    color: #FFFFFF;
+}
+aside {
+    background-color: #009933;
+    color: white;
+    padding: 10px;
+    border-radius: 0px 15px;
+    box-shadow: 1px 3px 5px rgba(0, 0, 0, 0.37);
+    
+}
+aside h3 {
+    background-color: #013b15;
+    color: black;
+    margin-top: -0em;
+    margin: -10px;
+    padding: 10px;
+    border-radius: 0px 15px 0px 0px;
+}
+.blan {
+    color: white;
+}
+.ftopo {
+    text-align: end;
+}
+.copyright {
+    color: #FF6633;
+}

@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Abertura da loja</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 500px;
+            margin: auto;
+
+        }
+        td, th {
+            border: 1px, solid, rgba(43, 42, 42, 0.493);
+            padding: 5px;
+        }
+        thead {
+            background-color: #FF6633;
+            color: white;
+        }
+        caption {
+            font-size: 1.2em;
+            font-weight: bolder;
+            padding: 10px;
+            background-color: lightgray;
+        }
+        /*
+        tbody > tr:nth-child(odd) {
+            background-color: lightgreen;
+        }
+        tbody > tr:nth-child(even) {
+            background-color: rgb(200, 245, 200);
+        }*/
+    </style>
+</head>
+<body>
+    <div id="topo"></div>
+    <header>
+        <h1>ABERTURA DA LOJA</h1>
+        <br>
+    </header>
+
+    <main>
+    <nav>
+        <a href="index.html">Início</a>
+        <a href="procedimentos.html">Comandos basc.</a>
+        <a href="abertura.html">Abertura da loja</a>
+        <a href="batch.html">Batch</a>
+        <a href="unificacao.html">Unifacação</a>
+        <a href="re_servidor.html">Re.servidor</a>
+        <a href="sobre.html">Sobre</a>
+        <a href="#contact">Contato</a>
+    </nav>
+    <article>
+        <h2>1° Conferir status do dia</h2>
+        <p>Primeiramente antes de tudo tem conferir status do dia, se o dia foi ativo no servidor <strong>Tplinux</strong>. Casso contrário colocar o dia para iniciar, via servidor <strong>Tplinux</strong>: opçaõ <strong>"SOD/EOD" START-OF-DAY </strong> </p>
+
+        <h2>2° Efetivação do Balanço</h2>
+        <p>Verifique o inventario da noite anterior entra na página do SAVEWEB, tela SINOI011 se na aba STATUS estiver  EFETIVADO isso significa o balanço já foi efetivaddo, caso contrário esperar a sinalizção do estoquista parar efetivar o balanço!</p>
+        
+        <p>Após o estoquista sinalizou parar efetivar, abrir o Putty servidor DB primeiro tem os progrwmas de notas no ar caso se estiver, depois entra no tela DFRUN EXE SJBOU02: comando SJBAL20 </p>
+        <h2>3° Colocar os Programs no Ar</h2>
+        <P>Após que efetivar o balanço tem colocar todos os programas no ar que é em total 8 programas: <br> <strong>SASOU05; SASOU25; SASOU39; SASOU43; SASOU46; SASOU47; SVDOU25; SCDOU27</strong>
+        </P>
+
+        <table>
+            <caption>A FUNÇÃO DE CADDA PROGRAMAS</caption>
+            <THead>
+                <tr>
+                    <th scope="col">PROGRAMA</th>
+                    <th scope="col">DESCRIÇÃO</th>
+                </tr>
+            </THead>
+            <tbody>
+                <tr>
+                    <td>SASOU05</td>
+                    <td>Programas parar Serviços Aplicativo</td>
+                </tr>
+                <tr>
+                    <td>SASOU25</td>
+                    <td>Emissão de NFe. a.s</td>
+                </tr>
+                <tr>
+                    <td>SASOU39</td>
+                    <td>Servidor de PDV IBM on-line</td>
+                </tr>
+                <tr>
+                    <td>SASOU43</td>
+                    <td>Procesamento on-line de PDV's</td>
+                </tr>
+                <tr>
+                    <td>SASOU46</td>
+                    <td>Procesamento on-line notificação rub</td>
+                </tr>
+                <tr>
+                    <td>SASOU47</td>
+                    <td>Geração on-line interface xml rub</td>
+                </tr>
+                <tr>
+                    <td>SVDOU25</td>
+                    <td>Caalculo da nota fiscal Atacadão background</td>
+                </tr>
+                <tr>
+                    <td>SCDOU27</td>
+                    <td>Atulização de sintegra  e regras tibutarias</td>
+                </tr>
+            </tbody>
+        </table>
+        <p>Após ativar os programas pode verificar se estão ativos com o <strong><i>PS -EF | GREP DFRUN</i></strong> no <strong><I>DB</I></strong></p>
+
+        <h2>4° Rodar Job De Abertura</h2>
+        <p>Antes de rodar o job <strong><i>(SJBABRE)</i></strong> verificar primeiro se os arquivos <strong><i>(ln)</i></strong> está na íntegra. "No <strong><i>DB</i></strong> <strong><i>i</i></strong> para entra no diretório íntegra: <strong><i>ls -l ln*"</i></strong> esses arquivos tem que está com a data do dia. <br> Após a verificação no <strong><i>DB</i></strong> tela <strong><i>SJBOU02</i></strong> rodar o <strong><i>SJBABRE</i></strong></p>
+
+        <h2>5° Sintetizar as Bíblias</h2>
+        <p>Para sintetizar as bíblias entra no <strong><i>DB >> DFRUN EXE SMGOU52</i></strong> apertar a tecla <strong><i>F7</i></strong> para sintetizar todos</p>
+
+        <h2>6° Atualizar o Shell Gerencial</h2>
+        <p>Espera primeiro os arquivos da bíblias foi baixado no job <i>SJBABRE</i> depois entra no <i>SRVSAVE >></i> digite: <i>gerencial</i>depois apertar ESC pra sair e deixa carregar todos. Vai pede para alterar a data para dia anterior e depois para dia atual.</p>
+
+        <h2>7° Atualizar a Planilha Gerencial</h2>
+        <p>Abre o explorador de arquivos >> mapa <i>relger</i> pasta <strong><i>gerencial</i></strong>e colocar para Atualizar</p>
+
+        <h2>8° Atualização Planilha de Vendas</h2>
+        <p>Abre o explorador de arquivos mapa relger pasta vendas da loja no menu;  entra no <strong><i>CPD_SRT50</i></strong>; apagar a tabela <strong><i>SRT50</i></strong> e voltar para mapa portal abrir a pasta PDF; abrir a tabela <strong><i>SRT50</i></strong> cópia a tabela e voltar para planilha colar a tabela <strong><i>SRT50</i></strong>.</p>
+
+        <p>depois no menu vendas da loja abrir o dia anterior e colar a mesma tebela de <strong><i>SRT50</i></strong>.</p>
+
+        <p>Depois abrir o programas <strong><i>Sitef_Transações</i></strong>; voltar para a data para dia anterior; Estados: Efetuado PDV; Tipo de produtos: Carreira DIgital, Crédito, Débito, Pix, Pagamentos, Voucherm, Outros; mandar para lista depois salvar esses alterações na área de trabalho. Voltar para menu vendas da loja; Abrir Sitef: na primeira coluna aperta ctrl + seta para baixo para ir na última colna e abre o arquivo sitef que está na área de trabalho cópia a tebela e volta para venda da loja e colar em baixo da tabela Sitef. No menu vendas da loja, na tabela de preços: abrir de novo o progerama Sitef: volta para dia anterior; Estado; clica em Efetuado PDV; TSYS_crédito e lista esse arquivo e anotar o valor de crédito na tabela de vendas. Depois volta para o menu: Opção PDV_Etiquetas; vai no programa de RUB (DASHBORD) voltar para o dia anterior e anotar; valor_produtos auditaveis lidos no estoque e produtos auditaveis não lidos</p>
+
+        <p>Após termina esse processo salva todos as alterações e fecha as tabelas! </p>
+
+        <p>Depois na mapa relger abre e cópia a pasta Gerencial e vendas da loja e ir na mapa Gerencial colar e na mapa portal colar!</p>
+    </article>
+    </main>
+    <footer>
+        <a href="guiacpd.html" style="color: white;">Voltar pra inicío</a>
+        <a href="#topo" style="color: white;" class="ftopo">volta ao topo</a>
+
+        <ul class="lista">
+            <li><a href="index.html">Início</a></li>
+            <li><a href="procedimentos.html">Comandos basc.</a></li>
+            <li><a href="abertura.html">Abertura da loja</a></li>
+            <li><a href="batch.html">Batch</a></li>
+            <li><a href="unificacao.html">Unifacação</a></li>
+            <li><a href="re_servidor.html">Re.servidor</a></li>
+            <li><a href="sobre.html">Sobre</a></li>
+            <li><a href="#contact">Contato</a></li>
+        </ul>
+        <p class="copyright">&copy; 2024 Site criado por Jean Midler Rya. Todos os direitos reservados para grupo CPD Atacadão Santo Amaro S.A.</p>
+    </footer>
+</body>
+</html>
