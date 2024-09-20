@@ -12,6 +12,7 @@
             border-collapse: collapse;
             width: 500px;
             margin: auto;
+            position: relative;
 
         }
         div#container {
@@ -24,6 +25,11 @@
         thead {
             background-color: #FF6633;
             color: white;
+        }
+        thead > tr > th {
+            position: sticky;
+            top: -1px;
+            background-color: #FF6633;
         }
         caption {
             font-size: 1.2em;
