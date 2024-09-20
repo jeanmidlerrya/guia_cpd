@@ -10,9 +10,12 @@
     <style>
         table {
             border-collapse: collapse;
-            width: 500px;
+            width: 400px;
             margin: auto;
 
+        }
+        div#container {
+            overflow-x: auto;
         }
         td, th {
             border: 1px, solid, rgba(43, 42, 42, 0.493);
@@ -67,49 +70,51 @@
         <P>Após que efetivar o balanço tem colocar todos os programas no ar que é em total 8 programas: <br> <strong>SASOU05; SASOU25; SASOU39; SASOU43; SASOU46; SASOU47; SVDOU25; SCDOU27</strong>
         </P>
 
-        <table>
-            <caption>A FUNÇÃO DE CADDA PROGRAMAS</caption>
-            <THead>
-                <tr>
-                    <th scope="col">PROGRAMA</th>
-                    <th scope="col">DESCRIÇÃO</th>
-                </tr>
-            </THead>
-            <tbody>
-                <tr>
-                    <td>SASOU05</td>
-                    <td>Programas parar Serviços Aplicativo</td>
-                </tr>
-                <tr>
-                    <td>SASOU25</td>
-                    <td>Emissão de NFe. a.s</td>
-                </tr>
-                <tr>
-                    <td>SASOU39</td>
-                    <td>Servidor de PDV IBM on-line</td>
-                </tr>
-                <tr>
-                    <td>SASOU43</td>
-                    <td>Procesamento on-line de PDV's</td>
-                </tr>
-                <tr>
-                    <td>SASOU46</td>
-                    <td>Procesamento on-line notificação rub</td>
-                </tr>
-                <tr>
-                    <td>SASOU47</td>
-                    <td>Geração on-line interface xml rub</td>
-                </tr>
-                <tr>
-                    <td>SVDOU25</td>
-                    <td>Caalculo da nota fiscal Atacadão background</td>
-                </tr>
-                <tr>
-                    <td>SCDOU27</td>
-                    <td>Atulização de sintegra  e regras tibutarias</td>
-                </tr>
-            </tbody>
-        </table>
+        <div id="container">
+            <table>
+                <caption>A FUNÇÃO DE CADDA PROGRAMAS</caption>
+                <THead>
+                    <tr>
+                        <th scope="col">PROGRAMA</th>
+                        <th scope="col">DESCRIÇÃO</th>
+                    </tr>
+                </THead>
+                <tbody>
+                    <tr>
+                        <td>SASOU05</td>
+                        <td>Programas parar Serviços Aplicativo</td>
+                    </tr>
+                    <tr>
+                        <td>SASOU25</td>
+                        <td>Emissão de NFe. a.s</td>
+                    </tr>
+                    <tr>
+                        <td>SASOU39</td>
+                        <td>Servidor de PDV IBM on-line</td>
+                    </tr>
+                    <tr>
+                        <td>SASOU43</td>
+                        <td>Procesamento on-line de PDV's</td>
+                    </tr>
+                    <tr>
+                        <td>SASOU46</td>
+                        <td>Procesamento on-line notificação rub</td>
+                    </tr>
+                    <tr>
+                        <td>SASOU47</td>
+                        <td>Geração on-line interface xml rub</td>
+                    </tr>
+                    <tr>
+                        <td>SVDOU25</td>
+                        <td>Caalculo da nota fiscal Atacadão background</td>
+                    </tr>
+                    <tr>
+                        <td>SCDOU27</td>
+                        <td>Atulização de sintegra  e regras tibutarias</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
         <p>Após ativar os programas pode verificar se estão ativos com o <strong><i>PS -EF | GREP DFRUN</i></strong> no <strong><I>DB</I></strong></p>
 
         <h2>4° Rodar Job De Abertura</h2>
