@@ -207,6 +207,7 @@ footer > .lista {
     padding: 5px;
     margin: 10px;
     color: #FFFFFF;
+    list-style-type: none;
 }
 aside {
     background-color: #009933;
