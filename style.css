@@ -148,40 +148,65 @@ header{
     color: #FFFFFF;
     text-align: center;
 }
-nav {
-    
-    text-align: center;
+
+span#hamburguer {
+    background-color: white;
+    color: #009933;
+    padding: 10px;
+    display: block;
+    text-align: left;
+    cursor: pointer;
+}
+
+span#hamburguer:hover {
+    color: #013b15;
+}
+
+menu > ul {
+    background-color: #80e49c;
+    color: #FFFFFF;
+    text-align: left;
     padding: 0px;
-    margin: 0px;
+    margin: -15px;
+    margin-left: -40px;
    
 }
 
-.navinicio a {
+
+menu > ul {
+    list-style-type: none;
+}
+
+menu {
+    display: none;
+}
+
+.navinicio > a {
+    background-color: #f7f8f700;
     color: #FFFFFF;
     text-align: center;
     display: inline-block;
     margin: auto;
-    margin: 5px;
-    width: 150px;
-    height: 150px;
+    margin: 2px;
+    width: 130px;
+    height: 130px;
     border: 1px, solid, rgba(211, 211, 211, 0.288);
 }
 
 a {
-    
-    padding: 10px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    margin: 5px;
-
-    color: var(--cor02);
+    background-color: white;
+    color: #009933;
+    padding: 5px;
+    border-bottom: 1px solid #009933;
+    width: 150px;
+    margin: 2px;
+    display: block;
     font-weight: bold;
     text-decoration: none;
 }
 
 a:hover {
     color: #FF6633;
-    text-decoration: underline;
     background-color: #ffffff25;
 }
 footer {
@@ -201,14 +226,27 @@ footer > p {
 
 footer > .lista {
     list-style-position: inside;
-    padding: 20px;
+    padding: 10px;
 }
- .lista > li {
+ .lista > li > a {
     padding: 5px;
-    margin: 10px;
-    color: #FFFFFF;
+    background-color: #00993300;
+    margin: 0px;
+    color: #009933;
     list-style-type: none;
+    border-bottom: none;
 }
+
+nav.resett > a {
+    background-color: #f7f8f700;
+    border-bottom: none;
+    display: inline-block;
+}
+
+ul.lista > li > a:hover {
+    color: #FF6633;
+}
+
 aside {
     background-color: #009933;
     color: white;

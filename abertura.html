@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Abertura da loja</title>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
+    <link rel="stylesheet" href="estilos/media_query.css">
     <link rel="stylesheet" href="style.css">
 
     <style>
@@ -40,24 +42,29 @@
         }*/
     </style>
 </head>
-<body>
+<body onresize="changeTaille()">
+
     <div id="topo"></div>
     <header>
         <h1>ABERTURA DA LOJA</h1>
         <br>
     </header>
+    <span id="hamburguer" class="material-symbols-outlined"  onclick="clickMenu()">menu</span>
+
+        <menu id="itens">
+            <ul>
+                <li><a href="index.html">Início</a></li>
+                <li><a href="procedimentos.html">Comandos basc.</a></li>
+                <li><a href="abertura.html">Abertura</a></li>
+                <li><a href="batch.html">Batch</a></li>
+                <li><a href="unificacao.html">Unifacação</a></li>
+                <li><a href="re_servidor.html">Re.servidor</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+            </ul>
+        </menu>
 
     <main>
-    <nav>
-        <a href="index.html">Início</a>
-        <a href="procedimentos.html">Comandos basc.</a>
-        <a href="abertura.html">Abertura</a>
-        <a href="batch.html">Batch</a>
-        <a href="unificacao.html">Unifacação</a>
-        <a href="re_servidor.html">Re.servidor</a>
-        <a href="sobre.html">Sobre</a>
     
-    </nav>
     <article>
         <h2>1° Conferir status do dia</h2>
         <p>Primeiramente antes de tudo tem conferir status do dia, se o dia foi ativo no servidor <strong>Tplinux</strong>. Casso contrário colocar o dia para iniciar, via servidor <strong>Tplinux</strong>: opçaõ <strong>"SOD/EOD" START-OF-DAY </strong> </p>
@@ -142,8 +149,10 @@
     </article>
     </main>
     <footer>
-        <a href="guiacpd.html" style="color: white;">Voltar pra inicío</a>
-        <a href="#topo" style="color: white;" class="ftopo">volta ao topo</a>
+        <nav class="resett">
+            <a href="index.html" style="color: white;">Voltar pra inicío</a>
+            <a href="#topo" style="color: white;" class="ftopo">volta ao topo</a>
+        </nav>
 
         <ul class="lista">
             <li><a href="index.html">Início</a></li>
@@ -153,9 +162,26 @@
             <li><a href="unificacao.html">Unifacação</a></li>
             <li><a href="re_servidor.html">Re.servidor</a></li>
             <li><a href="sobre.html">Sobre</a></li>
-
         </ul>
         <p class="copyright">&copy; 2024 Site criado por Jean Midler Rya. Todos os direitos reservados para grupo CPD Atacadão Santo Amaro S.A.</p>
     </footer>
+
+    <script>
+     function changeTaille() {
+            if (windows.innerWidth >= 768) {
+                itens.style.display = 'block'
+            } else {
+                itens.style.display = 'none'
+            }
+        }
+
+    function clickMenu() {
+        if (itens.style.display == 'block') {
+            itens.style.display = 'none'
+        } else {
+            itens.style.display = 'block'
+        }
+    }
+</script>
 </body>
 </html>
