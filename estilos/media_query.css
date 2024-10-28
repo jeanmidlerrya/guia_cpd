@@ -8,7 +8,7 @@ para telas Desktop : 992px até 1200px
 Para telas Grande : acima de 1200px */
 
 @media screen and (min-width: 768px) {
-    span#hambuguer {
+    span#hamburguer {
         display: none;
     }
     menu {
@@ -19,4 +19,13 @@ Para telas Grande : acima de 1200px */
         display: inline-block;
         
     }
+   
+}
+
+@media screen and (max-width: 768px) {
+    #itens > ul > li > a:hover {
+        background-color: #009933;
+        color: white;
+    }
+
 }

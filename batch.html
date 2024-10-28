@@ -7,6 +7,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet"/>
     <link rel="stylesheet" href="estilos/media_query.css">
     <link rel="stylesheet" href="style.css">
+    <script src="script.js"></script>
+
 </head>
 
 <body onresize="changeTaille()">
@@ -21,7 +23,7 @@
     <menu id="itens">
         <ul>
             <li><a href="index.html">Início</a></li>
-            <li><a href="procedimentos.html">Comandos basc.</a></li>
+            <li><a href="procedimentos.html">Comandos</a></li>
             <li><a href="abertura.html">Abertura</a></li>
             <li><a href="batch.html">Batch</a></li>
             <li><a href="unificacao.html">Unifacação</a></li>
@@ -210,7 +212,7 @@
     
         <ul class="lista">
             <li><a href="index.html">Início</a></li>
-            <li><a href="procedimentos.html">Comandos basc.</a></li>
+            <li><a href="procedimentos.html">Comandos</a></li>
             <li><a href="abertura.html">abertura da loja</a></li>
             <li><a href="batch.html">Batch</a></li>
             <li><a href="unificacao.html">Unifacação</a></li>
@@ -220,24 +222,6 @@
         </ul>
         <p class="copyright">&copy; 2024 Site criado por Jean Midler Rya. Todos os direitos reservados para grupo CPD Atacadão Santo Amaro S.A.</p>
     </footer>
-
-    <script>
-        function changeTaille() {
-            if (windows.innerWidth >= 768) {
-                itens.style.display = 'block'
-            } else {
-                itens.style.display = 'none'
-            }
-        }
-
-    function clickMenu() {
-        if (itens.style.display == 'block') {
-            itens.style.display = 'none'
-        } else {
-            itens.style.display = 'block'
-        }
-    }
-</script>
 
 </body>
 </html>

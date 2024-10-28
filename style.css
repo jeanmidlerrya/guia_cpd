@@ -159,7 +159,7 @@ span#hamburguer {
 }
 
 span#hamburguer:hover {
-    color: #013b15;
+    color: #FF6633;
 }
 
 menu > ul {
@@ -167,7 +167,7 @@ menu > ul {
     color: #FFFFFF;
     text-align: left;
     padding: 0px;
-    margin: -15px;
+    margin: -16px;
     margin-left: -40px;
    
 }
@@ -196,9 +196,9 @@ menu {
 a {
     background-color: white;
     color: #009933;
-    padding: 5px;
+    padding: 3px;
     /*border-bottom: 1px solid #009933;*/
-    width: 150px;
+    width: 120px;
     margin: auto;
     margin: 2px;
     display: block;
@@ -210,6 +210,8 @@ a:hover {
     color: #FF6633;
     background-color: #ffffff25;
 }
+
+
 footer {
     background-image: linear-gradient(to right, black, #009933);
     background-color: black;
@@ -242,6 +244,8 @@ nav.resett > a {
     background-color: #f7f8f700;
     border-bottom: none;
     display: inline-block;
+    margin: 0px;
+    padding: 0px;
 }
 
 ul.lista > li > a:hover {
