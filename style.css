@@ -181,16 +181,25 @@ menu {
     display: none;
 }
 
-.navinicio > a {
+main.index > nav.navinicio > ul > a.centre {
     background-color: #f7f8f700;
     color: #FFFFFF;
     text-align: center;
-    display: inline-block;
-    margin: auto;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    flex: auto;
     margin: 2px;
-    width: 130px;
+    width: 120px;
     height: 130px;
     border: 1px, solid, rgba(211, 211, 211, 0.288);
+}
+
+ul.ulinic, .centre {
+    display: flex;
+    flex: auto;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 a {
