@@ -191,15 +191,28 @@ main.index > nav.navinicio > ul > a.centre {
     flex: auto;
     margin: 2px;
     width: 120px;
-    height: 130px;
+    height: 170px;
     border: 1px, solid, rgba(211, 211, 211, 0.288);
+
 }
+
+span#symbol {
+    font-weight: normal;
+    width: 40px;
+    padding: 20px;
+    margin: 20px;
+    text-align: center;
+}
+
 
 ul.ulinic, .centre {
     display: flex;
     flex: auto;
     flex-wrap: wrap;
     justify-content: center;
+    height: 600pxpx;
+    width: 400px;
+    margin: auto;
 }
 
 a {
