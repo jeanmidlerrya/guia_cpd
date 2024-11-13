@@ -207,12 +207,14 @@ span#symbol {
 
 ul.ulinic, .centre {
     display: flex;
-    flex: auto;
+    
     flex-wrap: wrap;
     justify-content: center;
-    height: 600pxpx;
+    align-items: center;
+    height: 365px;
     width: 400px;
     margin: auto;
+
 }
 
 a {
