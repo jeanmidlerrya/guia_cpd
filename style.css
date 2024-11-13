@@ -81,6 +81,7 @@ main strong {
     border-radius: 0px;
     margin-top: 30px;
     margin-bottom: 30px;
+    
 }
 
 .principal {
@@ -191,7 +192,7 @@ main.index > nav.navinicio > ul > a.centre {
     flex: auto;
     margin: 2px;
     width: 120px;
-    height: 170px;
+    height: 115px;
     border: 1px, solid, rgba(211, 211, 211, 0.288);
 
 }
@@ -212,7 +213,7 @@ ul.ulinic, .centre {
     justify-content: center;
     align-items: center;
     height: 365px;
-    width: 400px;
+    width: 290px;
     margin: auto;
 
 }
